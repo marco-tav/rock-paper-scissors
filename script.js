@@ -57,8 +57,37 @@ function rpsRound(playerSelection, computerSelection) {
   return {message, theHumanWins, theComputerWins};
 }
 
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  
+  for (let i = 0; i < 5; i++) {
+    let {message, theHumanWins, theComputerWins} = rpsRound(getPlayerSelection(), getComputerSelection());
+
+    if (theHumanWins === true) {
+      playerScore += 1;
+    } else if (theComputerWins === true) {
+      computerScore += 1;
+    }
+
+    console.log(message);
+  }
+
+  if (playerScore === computerScore) {
+    console.log(`It's a tie ${playerScore} to ${computerScore}`);
+  } else if (playerScore > computerScore) {
+    console.log(`You won ${playerScore} to ${computerScore}`);
+  } else if (playerScore < computerScore) {
+    console.log(`You lost ${playerScore} to ${computerScore}`);
+  }
+
+  return {playerScore, computerScore};
+}
 
 
 /* ------------- MAIN PROGRAM -------------- */
 
 console.log("Let's play Rock-Paper-Scissors!");
+console.log("To play again reload the browser.");
+
+const {pScore, cScore} = game();
