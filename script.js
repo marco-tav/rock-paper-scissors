@@ -1,10 +1,11 @@
+/* --------- FUNCTION DECLARATIONS --------- */
+
 function getComputerSelection() {
   const rps = ['rock', 'paper', 'scissors'];
   let randomIndex = Math.floor(Math.random()*3);
 
   return rps[randomIndex];
 }
-
 
 function getPlayerSelection() {
   let playerSelection = prompt("Rock, paper or scissors");
@@ -56,3 +57,8 @@ function rpsRound(playerSelection, computerSelection) {
   return {message, theHumanWins, theComputerWins};
 }
 
+
+
+/* ------------- MAIN PROGRAM -------------- */
+
+console.log("Let's play Rock-Paper-Scissors!");
