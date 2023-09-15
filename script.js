@@ -18,3 +18,33 @@ function getPlayerSelection() {
   }
 }
 
+function rpsRound(playerSelection, computerSelection) {
+  let message;
+
+  if (playerSelection === computerSelection) {
+    message = `It's a tie! It's ${playerSelection} vs ${computerSelection}`;
+  
+  } else if (playerSelection === 'rock') {
+    if (computerSelection === 'paper') {
+      message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
+    } else if (computerSelection === 'scissors') {
+      message = `You win, ${playerSelection} beats ${computerSelection}`;
+    }
+  
+  } else if (playerSelection === 'paper') {
+    if (computerSelection === 'scissors') {
+      message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
+    } else if (computerSelection === 'rock') {
+      message = `You win, ${playerSelection} beats ${computerSelection}`;
+    }
+  
+  } else if (playerSelection === 'scissors') {
+    if (computerSelection === 'rock') {
+      message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
+    } else if (computerSelection === 'paper') {
+      message = `You win, ${playerSelection} beats ${computerSelection}`;
+    }
+  }
+
+  return message;
+}
