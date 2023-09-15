@@ -8,7 +8,7 @@ function getComputerSelection() {
 }
 
 function getPlayerSelection() {
-  let playerSelection = prompt("Rock, paper or scissors");
+  let playerSelection = prompt("Rock, paper or scissors?");
 
   playerSelection = playerSelection.trim().toLowerCase();
 
