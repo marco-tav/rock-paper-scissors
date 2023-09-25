@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: monospace;
 }
 
 *,
@@ -15,8 +16,9 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  background-color: lightgrey;
-  color: darkslategrey;
+  background-color: #ffca75;
+  color: #2f4f36;
+  margin: 0px;
 }
 
 body h1 span {
