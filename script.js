@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection) {
       message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
       theComputerWins = true;
     } else if (computerSelection === 'scissors') {
-      message = `You win, ${playerSelection} beats ${computerSelection}`;
+      message = `You win, ${playerSelection} beats ${computerSelection}!`;
       theHumanWins = true;
     }
   
@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
       message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
       theComputerWins = true;
     } else if (computerSelection === 'rock') {
-      message = `You win, ${playerSelection} beats ${computerSelection}`;
+      message = `You win, ${playerSelection} beats ${computerSelection}!`;
       theHumanWins = true;
     }
   
@@ -49,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
       message = `The computer wins, ${computerSelection} beats ${playerSelection}!`;
       theComputerWins = true;
     } else if (computerSelection === 'paper') {
-      message = `You win, ${playerSelection} beats ${computerSelection}`;
+      message = `You win, ${playerSelection} beats ${computerSelection}!`;
       theHumanWins = true;
     }
   }
