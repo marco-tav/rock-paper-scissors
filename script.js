@@ -19,7 +19,7 @@ function getPlayerSelection() {
   }
 }
 
-function rpsRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   let theHumanWins = false;
   let theComputerWins = false;
 
@@ -62,7 +62,7 @@ function game() {
   let computerScore = 0;
   
   for (let i = 0; i < 5; i++) {
-    let {message, theHumanWins, theComputerWins} = rpsRound(getPlayerSelection(), getComputerSelection());
+    let {message, theHumanWins, theComputerWins} = playRound(getPlayerSelection(), getComputerSelection());
 
     if (theHumanWins === true) {
       playerScore += 1;
@@ -86,8 +86,3 @@ function game() {
 
 
 /* ------------- MAIN PROGRAM -------------- */
-
-console.log("Let's play Rock-Paper-Scissors!");
-console.log("To play again reload the browser.");
-
-const {pScore, cScore} = game();
