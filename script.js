@@ -81,6 +81,13 @@ function game() {
   return {playerScore, computerScore};
 }
 
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreboard.textContent = 0;
+  computerScoreboard.textContent = 0;
+  messageBoard.textContent = "Let's play rock-paper-scissors! First to 5 wins! To start again use reset score button or keep playing!";
+}
 
 /* ------------- MAIN PROGRAM -------------- */
 
@@ -88,13 +95,13 @@ const rpsButtons = document.querySelectorAll('.game-button');
 const messageBoard = document.querySelector('.messageboard');
 const playerScoreboard = document.querySelector('.player');
 const computerScoreboard = document.querySelector('.computer');
+const playAgainButton = document.querySelector("#play-again");
 
 let playerScore = 0;
 let computerScore = 0;
 let finalMessage;
 
-rpsButtons.forEach(button => button.addEventListener('click', (e) => {
-
+rpsButtons.forEach(button => button.addEventListener('click', () => {
   let {message, pScore, cScore} = playRound(button.textContent, getComputerSelection());
   
   playerScore += pScore;
@@ -105,20 +112,20 @@ rpsButtons.forEach(button => button.addEventListener('click', (e) => {
   playerScoreboard.textContent = playerScore;
   computerScoreboard.textContent = computerScore;
 
-  if (playerScore === 5 || computerScore === 5) {
-    playerScore = 0;
-    computerScore = 0;
-    playerScoreboard.textContent = 0;
-  }
-
   if (playerScore === 5) {
     finalMessage = `You win this match ${playerScore} to ${computerScore}`;
     messageBoard.textContent = finalMessage;
+    playerScore = 0;
+    computerScore = 0;
   } else if (computerScore === 5) {
     finalMessage = `You lose this match ${playerScore} to ${computerScore}`;
     messageBoard.textContent = finalMessage;
+    playerScore = 0;
+    computerScore = 0;
   }
-}))
+}));
+
+playAgainButton.addEventListener('click', resetGame);
 
 
 
