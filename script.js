@@ -7,17 +7,6 @@ function getComputerSelection() {
   return rps[randomIndex];
 }
 
-function getPlayerSelection() {
-  let playerSelection = prompt("Rock, paper or scissors?");
-
-  playerSelection = playerSelection.trim().toLowerCase();
-
-  if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
-    return "That's not a valid choice! Try again!";
-  } else {
-    return playerSelection;
-  }
-}
 
 function playRound(playerSelection, computerSelection) {
   let pScore = 0;
@@ -57,30 +46,6 @@ function playRound(playerSelection, computerSelection) {
   return {message, pScore, cScore};
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    let {message, pScore, cScore} = playRound(getPlayerSelection(), getComputerSelection());
-
-    playerScore += pScore;
-    computerScore += cScore;
-
-    console.log(message);
-  }
-
-  if (playerScore === computerScore) {
-    console.log(`It's a tie ${playerScore} to ${computerScore}`);
-  } else if (playerScore > computerScore) {
-    console.log(`You won ${playerScore} to ${computerScore}`);
-  } else if (playerScore < computerScore) {
-    console.log(`You lost ${playerScore} to ${computerScore}`);
-  }
-
-  return {playerScore, computerScore};
-}
-
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
@@ -99,7 +64,6 @@ const playAgainButton = document.querySelector("#play-again");
 
 let playerScore = 0;
 let computerScore = 0;
-let finalMessage;
 
 rpsButtons.forEach(button => button.addEventListener('click', () => {
   let {message, pScore, cScore} = playRound(button.textContent, getComputerSelection());
