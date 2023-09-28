@@ -1,4 +1,4 @@
-# Tic-Tac-Toe redo
+# Rock-Pape-Scissors redo
 
 Just a re-do of the tic tac toe project to quickly refresh concepts.
 
