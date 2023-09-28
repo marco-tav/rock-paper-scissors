@@ -54,19 +54,9 @@ function resetGame() {
   messageBoard.textContent = "Let's play rock-paper-scissors! First to 5 wins! To start again use reset score button or keep playing!";
 }
 
-/* ------------- MAIN PROGRAM -------------- */
+function playGame(event) {
 
-const rpsButtons = document.querySelectorAll('.game-button');
-const messageBoard = document.querySelector('.messageboard');
-const playerScoreboard = document.querySelector('.player');
-const computerScoreboard = document.querySelector('.computer');
-const playAgainButton = document.querySelector("#play-again");
-
-let playerScore = 0;
-let computerScore = 0;
-
-rpsButtons.forEach(button => button.addEventListener('click', () => {
-  let {message, pScore, cScore} = playRound(button.textContent, getComputerSelection());
+  let {message, pScore, cScore} = playRound(event.srcElement.textContent, getComputerSelection());
   
   playerScore += pScore;
   computerScore += cScore;
@@ -87,7 +77,20 @@ rpsButtons.forEach(button => button.addEventListener('click', () => {
     playerScore = 0;
     computerScore = 0;
   }
-}));
+}
+
+/* ------------- MAIN PROGRAM -------------- */
+
+const rpsButtons = document.querySelectorAll('.game-button');
+const messageBoard = document.querySelector('.messageboard');
+const playerScoreboard = document.querySelector('.player');
+const computerScoreboard = document.querySelector('.computer');
+const playAgainButton = document.querySelector("#play-again");
+
+let playerScore = 0;
+let computerScore = 0;
+
+rpsButtons.forEach(button => button.addEventListener('click', playGame));
 
 playAgainButton.addEventListener('click', resetGame);
 
